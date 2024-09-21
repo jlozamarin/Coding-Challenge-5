@@ -32,3 +32,27 @@ let orders = [
     }
 ];
 console.log(orders);
+
+// Task 3: Create a Function to Place an Order
+
+function placeOrder(customerName, itemsOrdered) {
+    if (itemsOrdered.any(purchasedItem => {
+        let product = inventory.find(item => item.name === purchasedItem.name);
+        return !product || product.quantity < purchasedItem.quantity;
+    })) {
+        console.log("Low inventory for one or more food items.");
+        return;
+    }
+
+    itemsOrdered.forEach(purchasedItem => {
+        let product = inventory.find(item => item.name === purchasedItem.name);
+        product.quantity -= purchasedItem.quantity;
+    });
+
+    orders.push({ customerName, items: itemsOrdered, status: "Pending" });
+    console.log(`Order confirmed for ${customerName}.`);
+}
+
+
+
+
