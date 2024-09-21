@@ -49,10 +49,13 @@ function placeOrder(customerName, itemsOrdered) {
         product.quantity -= purchasedItem.quantity;
     });
 
-    orders.push({ customerName, items: itemsOrdered, status: "Pending" }); //Pushes new orders
+    let newOrder = {
+        customerName: customerName,
+        items: itemsOrdered,
+        status: "Pending"
+    }
+
+    orders.push(newOrder); //Pushes new orders
     console.log(`Order confirmed for ${customerName}.`); //Indicates to the customer that their order was processed successfully
 }
-
-
-
 
