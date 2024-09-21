@@ -40,17 +40,17 @@ function placeOrder(customerName, itemsOrdered) {
         let product = inventory.find(item => item.name === purchasedItem.name);
         return !product || product.quantity < purchasedItem.quantity;
     })) {
-        console.log("Low inventory for one or more food items.");
+        console.log("Low inventory for one or more food items."); // Indicates that there is a low stock for certain food items
         return;
     }
 
     itemsOrdered.forEach(purchasedItem => {
-        let product = inventory.find(item => item.name === purchasedItem.name);
+        let product = inventory.find(item => item.name === purchasedItem.name); //Helps to find certain items in the inventory
         product.quantity -= purchasedItem.quantity;
     });
 
-    orders.push({ customerName, items: itemsOrdered, status: "Pending" });
-    console.log(`Order confirmed for ${customerName}.`);
+    orders.push({ customerName, items: itemsOrdered, status: "Pending" }); //Pushes new orders
+    console.log(`Order confirmed for ${customerName}.`); //Indicates to the customer that their order was processed successfully
 }
 
 
