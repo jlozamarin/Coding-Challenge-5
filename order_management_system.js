@@ -84,9 +84,10 @@ function checkPendingOrders() {
 
     if (incompleteOrders.length > 0) {
         console.log("Pending Orders:");
-        pendingOrders.forEach(order => console.log(`Customer: ${order.customerName}`));
+        incompleteOrders.forEach(order => console.log(`Customer: ${order.customerName}`));
     } else {
-        console.log("No Pending Orders.");
+        console.log("No Pending Orders");
     }
 }
-checkPendingOrders();
+checkPendingOrders(Brianna Deaubler),
+checkPendingOrders(Jesenia Chatman);
