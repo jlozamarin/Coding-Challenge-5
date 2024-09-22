@@ -1,7 +1,5 @@
 // Task 1: Create an Inventory Array of Product Objects
-
 // Notes: The inventory array stores a list of product objects available in the coffee shop
-
 let inventory = [
     {name: "Iced Latte", price: 4.25, quantity: 35},
     {name: "Expresso", price: 3.00, quantity: 50},
@@ -11,9 +9,7 @@ let inventory = [
 console.log(inventory);
 
 // Task 2: Create an Orders Array of Order Objects
-
 // Notes: There are 3 orders created for customers - Brianna Deaubler, Jesenia Chatman, and Isabella Moore
-
 let orders = [
     {
         customerName: "Brianna Deaubler",
@@ -34,7 +30,6 @@ let orders = [
 console.log(orders);
 
 // Task 3: Create a Function to Place an Order
-
 function placeOrder(customerName, itemsOrdered) {
     if (itemsOrdered.any(purchasedItem => {
         let product = inventory.find(item => item.name === purchasedItem.name);
@@ -60,7 +55,6 @@ function placeOrder(customerName, itemsOrdered) {
 }
 
 // Task 4: Create a Function to Calculate Total for an Order
-
 function calculateOrderTotal(order) {
     return order.items.reduce((total, item) => {
         let product = inventory.find(product => product.name === item.name);
@@ -70,7 +64,6 @@ let orderTotal = calculateOrderTotal(orders[0]);
 console.log(`Final Amount: $${orderTotal.toFixed(2)}`); // Output - Final Amount: 18.25
 
 // Task 5: Create a Function to Mark an Order as Completed
-
 function completeOrder(customerName) {
     let order = orders.find(order => order.customerName === customerName);
 
@@ -85,3 +78,15 @@ completeOrder("Brianna Deaubler"), // Example for Brianna D. order
 completeOrder("Jesenia Chatman"), // Example for Jesenia C. order
 completeOrder("Isabella Moore"); // Example for Isabella M. order
 
+// Task 6: Create a Function to Check Pending Orders
+function checkPendingOrders() {
+    let incompleteOrders = orders.filter(order => order.status === "Pending");
+
+    if (incompleteOrders.length > 0) {
+        console.log("Pending Orders:");
+        pendingOrders.forEach(order => console.log(`Customer: ${order.customerName}`));
+    } else {
+        console.log("No Pending Orders.");
+    }
+}
+checkPendingOrders();
