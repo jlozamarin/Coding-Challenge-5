@@ -59,3 +59,13 @@ function placeOrder(customerName, itemsOrdered) {
     console.log(`Order confirmed for ${customerName}.`); //Indicates to the customer that their order was processed successfully
 }
 
+// Task 4: Create a Function to Calculate Total for an Order
+
+function calculateOrderTotal(order) {
+    return order.items.reduce((total, item) => {
+        let product = inventory.find(product => product.name === item.name);
+        return product ? total + (product.price * item.quantity) : total; }, 0);
+}
+let orderTotal = calculateOrderTotal(orders[0]); 
+console.log(`Final Amount: $${orderTotal.toFixed(2)}`);
+
