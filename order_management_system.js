@@ -89,5 +89,4 @@ function checkPendingOrders() {
         console.log("No Pending Orders");
     }
 }
-checkPendingOrders(Brianna Deaubler),
-checkPendingOrders(Jesenia Chatman);
+checkPendingOrders();
