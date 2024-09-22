@@ -67,5 +67,21 @@ function calculateOrderTotal(order) {
         return product ? total + (product.price * item.quantity) : total; }, 0);
 }
 let orderTotal = calculateOrderTotal(orders[0]); 
-console.log(`Final Amount: $${orderTotal.toFixed(2)}`);
+console.log(`Final Amount: $${orderTotal.toFixed(2)}`); // Output - Final Amount: 18.25
+
+// Task 5: Create a Function to Mark an Order as Completed
+
+function completeOrder(customerName) {
+    let order = orders.find(order => order.customerName === customerName);
+
+    if (order) {
+        order.status = "Completed";
+        console.log(`Order for ${customerName} is Completed.`); // Message for a completed order
+    } else {
+        console.log(`Error: Order not found for ${customerName}.`); // Error message for an order
+    }
+}
+completeOrder("Brianna Deaubler"), // Example for Brianna D. order
+completeOrder("Jesenia Chatman"), // Example for Jesenia C. order
+completeOrder("Isabella Moore"); // Example for Isabella M. order
 
